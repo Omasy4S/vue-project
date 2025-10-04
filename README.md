@@ -1,48 +1,60 @@
-# vue-project
+# Accounts Manager — Vue 3 Test Task
 
-This template should help get you started developing with Vue 3 in Vite.
+> Реализация формы управления учётными записями по техзаданию для frontend-вакансии: Vue 3 + TypeScript + Pinia + любая UI-библиотека (здесь — без нее, чистый markup).
 
-## Recommended IDE Setup
+---
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Описание
 
-## Recommended Browser Setup
+Приложение позволяет добавлять, редактировать, удалять и валидировать учётные записи с полями:
+- **Метки** (необязательное поле, ввод через `;`)
+- **Тип записи** (выпадающий список: "LDAP" или "Локальная")
+- **Логин** (обязательное поле, максимум 100 символов)
+- **Пароль** (обязательное для "Локальная", скрытое и равное `null` для "LDAP"; максимум 100 символов)
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+Все записи сохраняются в Pinia с автосохранением в localStorage (persist). После перезагрузки страницы данные не теряются.
 
-## Type Support for `.vue` Imports in TS
+---
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Функции
 
-## Customize configuration
+- Добавление новой учётной записи по "+".
+- Удаление нужной записи через иконку "корзина".
+- Скрытие/отображение пароля по клику на "глазик".
+- Валидация всех обязательных полей:
+  - "Обязательное поле" — при пустом вводе.
+  - "Не более 100 символов" — при превышении длины.
+- Подсказка для поля метки: заполнение через точку с запятой.
+- Красная обводка и сообщение об ошибке при невалидных данных.
+- Хранение всех данных между сессиями (localStorage).
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+---
 
-## Project Setup
+## Как запустить
 
-```sh
-npm install
-```
+1. **Клонировать проект:**
 
-### Compile and Hot-Reload for Development
+2. **Установить зависимости:**
+    npm install
 
-```sh
-npm run dev
-```
+3. **Запустить проект в режиме разработки:**
+    npm run dev
 
-### Type-Check, Compile and Minify for Production
+## Технологии
 
-```sh
-npm run build
-```
+- Vue 3 (Composition API)
+- TypeScript
+- Pinia + pinia-plugin-persistedstate
+- Чистый CSS/HTML-стиль (без UI-фреймворка, можно быстро адаптировать под Element Plus, Naive UI, Quasar и др.)
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+---
 
-```sh
-npm run test:unit
-```
+## Особенности реализации
+
+- Метка хранится как массив объектов: `[ { text: "AAA" }, { text: "BBB" } ]` при вводе `AAA; BBB`.
+- Для типа "LDAP" поле "Пароль" скрыто и сохраняется как `null`.
+- Для типа "Локальная" поле "Пароль" видно, обязательно, валидируется.
+- Сообщения об ошибках — двумя вариантами: "Обязательное поле" и "Не более 100 символов".
+- Все значения кроме метки — строковые, метка — массив объектов.
+
+---
