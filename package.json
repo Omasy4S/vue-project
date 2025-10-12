@@ -1,8 +1,22 @@
 {
-  "name": "vue-project",
-  "version": "0.0.0",
-  "private": true,
+  "name": "accounts-manager",
+  "version": "1.0.0",
+  "description": "Современное Vue 3 приложение для управления учетными записями",
+  "author": "Your Name",
+  "license": "MIT",
+  "private": false,
   "type": "module",
+  "keywords": [
+    "vue3",
+    "typescript",
+    "pinia",
+    "element-plus",
+    "accounts-management"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/accounts-manager.git"
+  },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },
@@ -10,7 +24,6 @@
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
-    "test:unit": "vitest",
     "build-only": "vite build",
     "type-check": "vue-tsc --build"
   },
@@ -22,17 +35,13 @@
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.2",
-    "@types/jsdom": "^21.1.7",
     "@types/node": "^22.18.6",
     "@vitejs/plugin-vue": "^6.0.1",
-    "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.8.1",
-    "jsdom": "^27.0.0",
     "npm-run-all2": "^8.0.4",
     "typescript": "~5.9.0",
     "vite": "^7.1.7",
     "vite-plugin-vue-devtools": "^8.0.2",
-    "vitest": "^3.2.4",
     "vue-tsc": "^3.1.0"
   }
 }
