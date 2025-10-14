@@ -80,7 +80,7 @@ const handlePasswordInput = (value: string) => {
         :model-value="labelsString"
         @input="handleLabelsInput"
         placeholder="Введите метки через ;"
-        maxlength="200"
+        maxlength="50"
       />
     </td>
 

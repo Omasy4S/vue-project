@@ -1,10 +1,10 @@
 {
   "name": "accounts-manager",
   "version": "1.0.0",
-  "description": "Современное Vue 3 приложение для управления учетными записями",
-  "author": "Your Name",
+  "description": "Форма управления учетными записями - тестовое задание для Vue Frontend Developer",
+  "author": "",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "type": "module",
   "keywords": [
     "vue3",
@@ -13,10 +13,6 @@
     "element-plus",
     "accounts-management"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yourusername/accounts-manager.git"
-  },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },
